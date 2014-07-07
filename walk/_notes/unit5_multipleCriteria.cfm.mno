@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_qGetArtist" value="name:FirstName;datatype:,name:LastName;datatype:" />
+	<infoitem key="UD_qArtistsResults" value="name:FirstName;datatype:,name:LastName;datatype:,name:City;datatype:" />
+</info>

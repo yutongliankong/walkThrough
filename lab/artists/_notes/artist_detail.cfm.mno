@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<info>
+	<infoitem key="UD_qGetDailyArt" value="name:ArtName;datatype:,name:Description;datatype:,name:Largeimage;datatype:,name:SalePrice;datatype:" />
+	<infoitem key="UD_qArtistDetail" value="name:ArtName;datatype:,name:Description;datatype:,name:ArtType;datatype:,name:Price;datatype:,name:Largeimage;datatype:,name:IsSold;datatype:" />
+</info>

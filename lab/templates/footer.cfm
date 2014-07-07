@@ -1,0 +1,6 @@
+<!---Begin footer --->
+
+</body>
+
+</html>
+
