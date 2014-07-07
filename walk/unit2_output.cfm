@@ -11,6 +11,10 @@
 
 <cfset firstName="Sue">
 <cfset lastName="Smith">
-
+My name is :
+<cfoutput>
+	#Variables.firstName#
+	#Variables.lastName#
+</cfoutput>
 </body>
 </html>
