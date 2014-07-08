@@ -1,4 +1,4 @@
-<cfquery name="qArtist" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtist" datasource="ftcf800_artGalleryLab" result="resultInfo">
 SELECT FirstName, LastName, Artists.City
 FROM Artists 
 </cfquery>
@@ -15,7 +15,7 @@ FROM Artists
 <h2>Artists</h2>
 
 <cfoutput>
-There are [X] artists in the database.<br /><br />
+There are #resultInfo.RecordCount# artists in the database.<br /><br />
 </cfoutput>
 
 <table border="1">
@@ -27,7 +27,7 @@ There are [X] artists in the database.<br /><br />
 	</tr>
 	<cfoutput query="qArtist">
 		<tr>
-			<td></td>
+			<td>#qArtist.CurrentRow#</td>
 			<td>#qArtist.FirstName#</td>
 			<td>#qArtist.LastName#</td>
 			<td>#qArtist.City#</td>
