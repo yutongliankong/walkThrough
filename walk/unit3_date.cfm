@@ -36,7 +36,9 @@ There are #resultInfo.RecordCount# artists in the database.<br /><br />
 </table>
 <br /><br />
 
-
-
+Today's Date:    
+<cfoutput>
+#DateFormat(Now())#
+</cfoutput>
 </body>
 </html>
