@@ -12,7 +12,10 @@ FROM Artists
 
 <body>
 
-
+<cfdump var="#qArtist#">
+<cfoutput>
+#cfquery.ExecutionTime#
+</cfoutput>
 
 </body>
 </html>
