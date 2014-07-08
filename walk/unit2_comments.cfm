@@ -14,6 +14,7 @@
 
 My name is:
 
+<!--- Print out variables --->
 <cfoutput>
 #Variables.firstName#
 #Variables.lastName#
