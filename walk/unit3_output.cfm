@@ -11,7 +11,12 @@ FROM Artists
 </head>
 
 <body>
-
+<h2>Artists</h2>
+<cfoutput query="qArtist">
+#qArtist.FirstName#
+#qArtist.LastName#
+#qArtist.City#<br />
+</cfoutput>
 
 
 </body>
