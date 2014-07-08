@@ -13,8 +13,19 @@ FROM Artists
 <body>
 
 <h2>Artists</h2>
-
-
-
+<table border-"1">
+	<tr>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>City</th>
+	</tr>
+	<cfoutput query="qArtist">
+	<tr>
+		<td>#qArtist.FirstName#</td>
+		<td>#qArtist.LastName#</td>
+		<td>#qArtist.City#</td>
+	</tr>
+	</cfoutput>
+</table>
 </body>
 </html>
