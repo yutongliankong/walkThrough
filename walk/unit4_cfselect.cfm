@@ -6,7 +6,11 @@
 </head>
 
 <body>
-
+<cfquery name="qToppings" datasource="ftcf800_artGalleryLab">
+	SELECT Topping_Desc, Topping_ID
+	FROM Toppings
+	ORDER BY Topping_Desc
+</cfquery>
 <cfoutput>
 <cfif IsDefined("Form.order")>
 	<cfparam name="Form.delivery" default="No" />
@@ -24,7 +28,7 @@
 </cfoutput>
 <br />
 
-<form action="unit4_cfselect.cfm" method="post" name="orderSearch">
+<cfform name="orderSearch">
 
 <table>
 	<tr>
@@ -60,16 +64,12 @@
 	<tr>
 		<td>Toppings</td>
 		<td>
-			<select name="toppings" size="4" multiple>
-				<option value="1">Pepperoni</option>
-				<option value="2">Mushrooms</option>
-				<option value="3">Anchovy</option>
-				<option value="4">Extra Cheese</option>
-				<option value="5">Sausage</option>
-				<option value="6">Onions</option>
-				<option value="7">Olives</option>
-				<option value="8">Canadian Bacon</option>
-			</select>
+			<cfselect name="toppings" size="4" multiple
+				query="qToppings"
+				value="Topping_ID"
+				display="Topping_Desc">
+				
+			</cfselect>
 		</td>
 	</tr>
 	<tr>
@@ -82,7 +82,7 @@
 	</tr>
 </table>
 
-</form>
+</cfform>
 
 </body>
 </html>
