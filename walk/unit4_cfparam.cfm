@@ -10,8 +10,14 @@
 <cfoutput>
 <cfif IsDefined("Form.order")>
 	The form has been submitted.<br />
+	<cfparam name="Form.delivery" default="No" />
 	#Form.customerName#<br />
 	#Form.size#<br />
+	<cfif Form.delivery EQ "Yes">
+		Thanks! Your pizza will be delivered in 30 minutes.<br/>
+	<cfelseif Form.delivery EQ "No" >
+		Thanks! Your pizza wille be ready for pick up in 30 minutes.<br/>
+	</cfif>
 	#Form.delivery#<br />
 	#Form.toppings#<br />
 	#Form.notes#<br />
