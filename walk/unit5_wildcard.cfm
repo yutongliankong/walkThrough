@@ -51,7 +51,7 @@ ORDER BY LastName
 		AND LastName = '#Form.LastName#'
 	</cfif>
 	<cfif Form.City IS NOT "">
-		AND City = '#Form.City#'
+		AND City LIKE '#Form.City#%'
 	</cfif>
 	ORDER BY LastName ASC 
 	</cfquery>
