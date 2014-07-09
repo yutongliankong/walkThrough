@@ -16,7 +16,7 @@ WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID
 
 <body>
 
-
+<cfdocument format="pdf">
 	<cfoutput>
 	<cfif isDefined("URL.status")>
 		<h2>Orders with "#URL.status#" Status</h2>
@@ -39,7 +39,7 @@ WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID
 		</tr>
 	  </cfoutput>
 	</table>
-
+</cfdocument>
 
 </body>
 </html>
