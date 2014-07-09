@@ -7,7 +7,12 @@
 
 <body>
 
-
+<cflayout type="tab" name="tabContainer" tabHeight="300px" style="width:500px">
+	<cflayoutarea name="mixedMedia" source="unit6_tabMixedMedia.cfm" title="Mixed Media"></cflayoutarea>
+	<cflayoutarea name="oils" source="unit6_tabOils.cfm" title="Oils"></cflayoutarea>
+	<cflayoutarea name="pastels" source="unit6_tabPastels.cfm" title="Pastels"></cflayoutarea>
+	<cflayoutarea name="waterColors" source="unit6_tabWatercolors.cfm" title="Water Colors"></cflayoutarea>
+</cflayout>
 
 </body>
 </html>
