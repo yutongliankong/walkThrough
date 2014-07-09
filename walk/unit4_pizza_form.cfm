@@ -5,7 +5,7 @@
 <title>Pizza Order Form</title>
 </head>
 <body>
-<form action="unit4_pizza_action.cfm" method="post">
+<form action="unit4_pizza_action.cfm" method="post" name="orderSearch">
 	<table border="0">
 		<tr>
 			<td><label for="customerName">Customer&nbsp;Name</label></td>
