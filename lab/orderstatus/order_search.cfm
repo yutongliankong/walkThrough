@@ -21,7 +21,7 @@
 		</tr>
 		<tr>
 			<td>Status:</td>
-			<td><cfselect name="status" query="qOrderStatusTypes" vlaue="OrderStatusID" display="Status" queryposition="below">
+			<td><cfselect name="status" query="qOrderStatusTypes" value="OrderStatusID" display="Status" queryposition="below">
 				<option value="All" >Select All</option>
 			</cfselect>
 			</td>
@@ -48,7 +48,7 @@
 			AND Orders.CustomerLastName = '#Form.customerLastName#'
 		</cfif>
 		<cfif Form.status NEQ "All">
-			AND Orders.OrderStatusId = #Form.status#
+			AND Orders.OrderStatusID = #Form.status#
 		</cfif>
 	</cfquery>
 	<cfif orderResult.RecordCount GT 0>
