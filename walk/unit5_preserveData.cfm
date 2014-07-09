@@ -12,7 +12,7 @@ ORDER BY LastName
 
 <body>
 
-<cfform name="queryArtist">
+<cfform name="queryArtist" preservedata="yes">
 
 	<table>
 	<tr>
