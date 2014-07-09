@@ -7,7 +7,7 @@
 
 <body>
 
-<form action="unit4_pizza_action.cfm" method="post" name="orderSearch">
+<form action="unit4_selfPosting.cfm" method="post" name="orderSearch">
 
 <table>
 	<tr>
