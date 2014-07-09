@@ -48,7 +48,7 @@ ORDER BY LastName
 	FROM Artists
 	WHERE 0 = 0
 	<cfif Form.LastName IS NOT "All">
-		AND LastName = '#Form.LastName#'
+		AND LastName IN (#ListQualify(Form.LastName, "'")#)
 	</cfif>
 	<cfif Form.City IS NOT "">
 		AND City LIKE '#Form.City#%'
