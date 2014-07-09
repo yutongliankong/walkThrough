@@ -2,6 +2,9 @@
 SELECT OrderID, OrderDate, Status
 FROM Orders, OrderStatus
 WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID
+<cfif isDefined("URL.osid")>
+	AND Orders.OrderStatusID = #URL.osid#
+</cfif>
 </cfquery>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -14,7 +17,12 @@ WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID
 <body>
 
 <cfoutput>
-	<h2>All Orders in the System</h2>
+	<cfif isDefined("#URL.status#")>
+		<h2>Orders with "#URL.status#"</h2>
+	<cfelse>
+		<h2>All Orders in the System</h2>
+	</cfif>
+	
 </cfoutput>
 
 <table border="1" cellpadding="3">

@@ -13,7 +13,9 @@ FROM OrderStatus
 <body>
 
 <h2>Search for Orders by Status</h2>
-
+<cfoutput query="qStatus">
+	<a href="unit6_detail.cfm?osid=#qStatus.OrderStatusId#&status=#qStatus.Status#">#qStatus.Status#</a><br/>
+</cfoutput>
 
 
 </body>
