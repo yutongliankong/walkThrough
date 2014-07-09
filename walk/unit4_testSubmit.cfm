@@ -6,6 +6,17 @@
 </head>
 
 <body>
+<cfoutput>
+	<cfif IsDefined("Form.order")>
+	The form has been submitted.<br />
+	#Form.customerName#<br />
+	#Form.size#<br />
+ 	#Form.delivery#<br />
+	#Form.toppings#<br />
+	#Form.notes#<br />
+</cfif>
+</cfoutput>
+<br />
 
 <form action="unit4_testSubmit.cfm" method="post" name="orderSearch">
 
