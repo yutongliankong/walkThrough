@@ -7,7 +7,9 @@
 	FROM OrderStatus
 	ORDER BY Status
 </cfquery>
-<cfform name="orderStatus">
+
+
+<cfform name="orderStatus" preservedata="yes">
 	<table>
 		<tr>
 			<td>Order ID:</td>
@@ -30,16 +32,48 @@
 		</tr>
 	</table>
 </cfform>
-<cfoutput>
+
 <cfif isDefined("oSearch")>
 	<cfparam name="status" default="All" />
 	<cfparam name="orderID" default="" />
 	<cfparam name="customerLastName" default="" />
-	#Form.status# <br />
-	#Form.orderId# <br />
-	#Form.customerLastName# <br />
+	<cfquery name="qGetOrders" datasource="ftcf800_artGalleryLab" result="orderResult">
+		SELECT Orders.OrderID, Orders.CustomerLastName, Orders.OrderDate, OrderStatus.Status
+		FROM Orders, OrderStatus
+		WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID
+		<cfif Form.orderID NEQ "">
+			AND Orders.OrderID = #Form.orderID#
+		</cfif>
+		<cfif Form.customerLastName NEQ "">
+			AND Orders.CustomerLastName = '#Form.customerLastName#'
+		</cfif>
+		<cfif Form.status NEQ "All">
+			AND Orders.OrderStatusId = #Form.status#
+		</cfif>
+	</cfquery>
+	<cfif orderResult.RecordCount GT 0>
+		<table>
+			<tr>
+				<th>Order ID</th>
+				<th>Customer Lastname</th>
+				<th>Order Date</th>
+				<th>Status</th>
+			</tr>
+			<cfoutput query="qGetOrders">
+			<tr>
+				<td>#qGetOrders.OrderID#</td>
+				<td>#qGetOrders.CustomerLastName#</td>
+				<td>#DateFormat(qGetOrders.OrderDate)#</td>
+				<td>#qGetOrders.Status#</td>
+			</tr>
+			</cfoutput>
+		</table>
+	<cfelse>
+		No Records Matched the Search Criteria.
+	</cfif>
+
 </cfif>
-</cfoutput>
+
 <cfinclude template="../templates/footer.cfm">
 
 
