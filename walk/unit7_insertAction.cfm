@@ -22,7 +22,13 @@ Last Name:
 </cfform>
 <br /><br />
 
-
+<cfif isDefined("Form.Insert")>
+	<cfquery name="qInsert" datasource="ftcf800_artGalleryLab">
+		INSERT INTO Artists (FirstName, LastName)
+		VALUES ('#Form.FirstName#', '#Form.LastName#')
+	</cfquery>
+	The artist has been added to the database.
+</cfif>
 
 </body>
 </html>
