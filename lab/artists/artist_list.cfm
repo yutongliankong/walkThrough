@@ -29,7 +29,7 @@ FROM Artists
 	</tr>
 	<cfoutput query="qArtists">
 		<tr>
-			<td>#qArtists.ArtistID#</td>
+			<td><a href="artist_detail.cfm?ArtistID=#qArtists.ArtistID#">#qArtists.ArtistID#</a></td>
 			<td>#qArtists.FirstName#</td>
 			<td>#qArtists.LastName#</td>
 			<td>#qArtists.Phone#</td>
