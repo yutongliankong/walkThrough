@@ -27,7 +27,7 @@ Last Name:
 	INSERT INTO Artists (FirstName, LastName)
 	VALUES ('#Form.FirstName#', '#Form.LastName#')
 	</cfquery>
-	The artist has been added to the database.
+	<cflocation url="../lab/artists/artist_list.cfm">
 </cfif>
 
 </body>
