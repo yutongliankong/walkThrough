@@ -39,7 +39,8 @@ ORDER BY ArtTYpe
 	</tr>
     <tr valign="baseline">
         <td nowrap align="right">Art Name:</td>
-        <td><cfinput type="text" name="ArtName" value=""></td>
+        <td><cfinput type="text" name="ArtName" value="" maxlength="50" 
+                required="yes" message="Please input the art name." validateat="onblur, onsubmit"></td>
     </tr>
     <tr valign="baseline">
         <td nowrap align="right">Art Type:</td>
@@ -54,11 +55,13 @@ ORDER BY ArtTYpe
     </tr>
     <tr valign="baseline">
 	    <td nowrap align="right">Price: </td>
-    	<td><cfinput type="text" name="Price"></td>
+    	<td><cfinput type="text" name="Price" 
+                required="yes" message="Please input the price." validate="float" validateat="onblur, onsubmit"></td>
     </tr>
     <tr valign="baseline">
         <td nowrap align="right">Image File Name:</td>
-        <td><cfinput type="text" name="Largeimage"></td>
+        <td><cfinput type="text" name="Largeimage" maxlength="30"
+                required="yes" message="Please input image file name." validateat="onblur, onsubmit"></td>
     </tr>
     <tr valign="baseline">
         <td nowrap align="right">Sold?</td>
@@ -70,6 +73,15 @@ ORDER BY ArtTYpe
     </tr>
 </table>
 </cfform>
+
+<cfif isDefined("Form.insArt")>
+    <cfparam name="Form.IsSold" default="0" />
+    <cfquery name="insertArt" datasource="ftcf800_artGalleryLab" >
+        INSERT INTO Art (ArtistID, ArtName, ArtType_ID, Description, Price, Largeimage, IsSold)
+        VALUES (#Form.ArtistID#, '#Form.ArtName#', #Form.ArtType_ID#, '#Form.Description#', '#Form.Price#', '#Form.Largeimage#', #Form.IsSold#)
+    </cfquery>
+    <cflocation url="art_list.cfm">
+</cfif>
 
 <!---include the footer --->
 <cfinclude template="../templates/footer.cfm">
