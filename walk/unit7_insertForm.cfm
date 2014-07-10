@@ -14,7 +14,7 @@
 </head>
 
 <body>
-	<h2>nsert an Artist</h2>
+	<h2>Insert an Artist</h2>
 	<cfform name="insArtist">
 	<div style="margin-bottom:8px;">
 		<label>First Name:</label>

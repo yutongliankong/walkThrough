@@ -35,7 +35,8 @@ ORDER BY LastName
 <cfif IsDefined("URL.ArtistID")>
 	<cfquery name="delArtist" datasource="ftcf800_artGalleryLab">
 		DELETE FROM Artists 
-		WHERE ArtistID = #URL.ArtistID#
+		WHERE ArtistID = 
+		<cfqueryparam value="#URL.ArtistID#" cfsqltype="cf_sql_integer"> 
 	</cfquery>
 	<cflocation url="unit8_cfqueryparam.cfm">
 </cfif>
