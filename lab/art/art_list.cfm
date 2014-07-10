@@ -32,7 +32,7 @@ FROM Art
       <td>#qArtList.ARTNAME#</td>
       <td>#qArtList.Description#</td>
       <td>#DollarFormat(qArtList.PRICE)#</td>
-      <td>[Edit]</td>
+      <td><a href="art_edit.cfm?artID=#qArtList.ArtID#">[Edit]</a></td>
     </tr>
   </cfoutput>
 </table>
