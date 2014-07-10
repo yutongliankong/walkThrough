@@ -12,10 +12,14 @@
 <cfform name="insArtist">
 
 First Name:
-<cfinput type="text" name="FirstName" maxlength="20" /><br/>
+<cfinput type="text" name="FirstName" maxlength="20" 
+
+	required="yes" message="Please inout an artist first name." validateat="onserver"/><br/>
 
 Last Name:
-<cfinput type="text" name="LastName" maxlength="20" /><br/>
+<cfinput type="text" name="LastName" maxlength="20" 
+	
+	required="yes" message="Please inout an Artist's last name" validateat="onsubmit"/><br/>
 
 <cfinput type="submit" name="Insert" value="Insert Artist" />
 
