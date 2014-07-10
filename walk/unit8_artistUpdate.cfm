@@ -32,6 +32,15 @@ Last Name:
 <cfinput type="submit" name="update" value="Update Artist" id="update">
 
 </cfform>   
+<cfif isDefined("Form.update")>
+	<cfquery name="qUpdateArtist" datasource="ftcf800_artGalleryLab">
+	UPDATE Artists
+	SET FirstName='#Form.FirstName#',
+		LastName='#Form.LastName#'
+	WHERE ArtistID = #Form.ArtistID#
+	</cfquery>
+	<cflocation url="unit8_artistList2.cfm">
+</cfif>
 
 </body>
 </html>
