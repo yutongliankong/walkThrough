@@ -18,7 +18,7 @@ WHERE Art.ArtID = DailyArt.DailyArtID
 			</cfoutput>
 			Art of the Day Specials
 		</h2>
-
+		<cf_date>
 		<table border="2">
 			<tr>
 			<th>Row</th>
