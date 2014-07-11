@@ -4,7 +4,7 @@
 
 <cfinclude template="../templates/footer.cfm">
 
-<cfquery name="qGetDailyArt" datasource="ftcf800_artGalleryLab" result="resultInfo">
+<cfquery name="qGetDailyArt" datasource="#Application.dsn#" result="resultInfo">
 SELECT Art.ArtName, Art.Description, Art.Largeimage, DailyArt.SalePrice
 FROM Art, DailyArt
 WHERE Art.ArtID = DailyArt.DailyArtID

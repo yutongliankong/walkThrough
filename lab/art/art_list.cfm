@@ -10,7 +10,7 @@
 This page is linked to the main toolbar on the Gallery link. It displays a list of all art items. This page will be used to link up the functionality for adding and editing pieces of artwork in labs 8 & 9.
 ---------------------------------------------------------------------//--->
 
-<cfquery name="qArtList" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtList" datasource="#Application.dsn#">
 SELECT ArtID, ArtName, Description, Price
 FROM Art
 </cfquery>

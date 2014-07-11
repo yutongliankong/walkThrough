@@ -1,6 +1,6 @@
 <cfinclude template="../templates/header.cfm">
 
-<cfquery name="qArtistDetail" datasource="ftcf800_artGalleryLab" result="artInfo">
+<cfquery name="qArtistDetail" datasource="#Application.dsn#" result="artInfo">
 SELECT Art.ArtName, Art.Description, ArtType.ArtType, Art.Price, Art.Largeimage, Art.IsSold
 FROM Art, ArtType
 WHERE Art.ArtType_ID = ArtType.ArtType_ID

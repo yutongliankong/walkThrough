@@ -10,7 +10,7 @@
 This page displays a list of artists.
 ---------------------------------------------------------------------//--->
 
-<cfquery name="qArtists" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtists" datasource="#Application.dsn#">
 SELECT Artists.ArtistID, Artists.FirstName, Artists.LastName, Artists.Phone 
 FROM Artists
 </cfquery>

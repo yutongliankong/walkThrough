@@ -14,19 +14,19 @@ This page is a generic form for updating a row in the ART table. You will prefil
 	<cflocation url="art_list.cfm">
 </cfif>
 
-<cfquery name="qArt" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArt" datasource="#Application.dsn#">
 SELECT *
 FROM Art
 WHERE Art.ArtID = #URL.artID#
 </cfquery>
 <!---Get a valid list of Artists --->
-<cfquery name="qArtists" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtists" datasource="#Application.dsn#">
 SELECT ArtistID, FirstName, LastName 
 FROM Artists 
 ORDER BY LastName ASC
 </cfquery>
 
-<cfquery name="qArtTypes" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtTypes" datasource="#Application.dsn#">
 SELECT ArtType_ID, ArtType
 FROM ArtType
 ORDER BY ArtType
@@ -84,7 +84,7 @@ ORDER BY ArtType
 
 <cfif isDefined("Form.updArt")>
 	<cfparam name="Form.ISSOLD" default="0" />
-	<cfquery name="updArt" datasource="ftcf800_artGalleryLab">
+	<cfquery name="updArt" datasource="#Application.dsn#">
 		UPDATE Art
 		SET ArtistID = #Form.ArtistID#, 
 			ArtName = '#Form.ARTNAME#',

@@ -11,13 +11,13 @@ This page is a generic form for inserting information into the ART table. In lab
 ---------------------------------------------------------------------//--->
 
 <!---Get a valid list of Artists --->
-<cfquery name="qArtists" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtists" datasource="#Application.dsn#">
 SELECT ArtistID, FirstName, LastName 
 FROM Artists 
 ORDER BY LastName ASC
 </cfquery>
 
-<cfquery name="qArtTypes" datasource="ftcf800_artGalleryLab">
+<cfquery name="qArtTypes" datasource="#Application.dsn#">
 SELECT ArtType_ID, ArtType
 FROM ArtType
 ORDER BY ArtTYpe
@@ -76,7 +76,7 @@ ORDER BY ArtTYpe
 
 <cfif isDefined("Form.insArt")>
     <cfparam name="Form.IsSold" default="0" />
-    <cfquery name="insertArt" datasource="ftcf800_artGalleryLab" >
+    <cfquery name="insertArt" datasource="#Application.dsn#" >
         INSERT INTO Art (ArtistID, ArtName, ArtType_ID, Description, Price, Largeimage, IsSold)
         VALUES (#Form.ArtistID#, '#Form.ArtName#', #Form.ArtType_ID#, '#Form.Description#', '#Form.Price#', '#Form.Largeimage#', #Form.IsSold#)
     </cfquery>

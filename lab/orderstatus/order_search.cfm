@@ -2,7 +2,7 @@
 
 <h1>Oeder Search</h1>
 <h2>Enter one of the following search criteria to locate an order: </h2>
-<cfquery name="qOrderStatusTypes" datasource="ftcf800_artGalleryLab">
+<cfquery name="qOrderStatusTypes" datasource="#Application.dsn#">
 	SELECT OrderStatusId, Status
 	FROM OrderStatus
 	ORDER BY Status
@@ -37,7 +37,7 @@
 	<cfparam name="status" default="All" />
 	<cfparam name="orderID" default="" />
 	<cfparam name="customerLastName" default="" />
-	<cfquery name="qGetOrders" datasource="ftcf800_artGalleryLab" result="orderResult">
+	<cfquery name="qGetOrders" datasource="#Application.dsn#" result="orderResult">
 		SELECT Orders.OrderID, Orders.CustomerLastName, Orders.OrderDate, OrderStatus.Status
 		FROM Orders, OrderStatus
 		WHERE Orders.OrderStatusID = OrderStatus.OrderStatusID

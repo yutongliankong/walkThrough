@@ -6,7 +6,7 @@
 		
 		<cfset isLoggedIn="false">
 		
-		<cfquery name="qCheckLogin" datasource="ftcf800_artGalleryLab" result="resultInfo">
+		<cfquery name="qCheckLogin" datasource="#Application.dsn#" result="resultInfo">
 		SELECT Email, AdminPassword
 		FROM GalleryAdmin
 		WHERE Email = <cfqueryparam value="#arguments.Email#" cfsqltype="cf_sql_varchar" />

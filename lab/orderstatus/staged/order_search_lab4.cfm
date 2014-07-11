@@ -1,4 +1,4 @@
-<cfquery name="qOrderStatusTypes" datasource="ftcf800_artGalleryLab">
+<cfquery name="qOrderStatusTypes" datasource="#Application.dsn#">
 SELECT OrderStatusID, Status
 FROM OrderStatus
 ORDER BY Status ASC 
