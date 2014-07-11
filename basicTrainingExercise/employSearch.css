@@ -1,0 +1,42 @@
+
+body{
+	font-family: Arial;
+	font-size: 
+}
+th{
+	vertical-align: center;
+	text-align: center;
+	background-color : #DDDDDD;
+}
+th, td{
+	padding: 5px;
+	border : 1px solid #B4B4B4;
+	border: 
+}
+h1{
+	font-size : 1.2em;
+}
+h2{
+	font-size : 1em;
+}
+
+table{
+	border : 1px solid #B4B4B4;
+	width: 100%
+}
+
+fieldset{
+	border: 1px solid;
+	padding: 20px;
+}
+legend{
+	font-weight:bold;
+}
+
+.marginRule{
+	margin-right: 10px;
+}
+
+#employeeName{
+	font : 1em Arial;
+}
