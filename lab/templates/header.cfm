@@ -34,7 +34,7 @@ This is a toolbar for the Art Gallery application
 		<td width="129" nowrap class="links"><a href="../art/art_list.cfm" class="nav">Gallery</a></td>
 		<td width="129" nowrap class="links"><a href="../orderstatus/Order_Search.cfm" class="nav">Order Status</a></td>
 		<td width="129" nowrap class="links"><a href="../artists/artist_list.cfm" class="nav">Artists</a></td>
-		<td width="129" nowrap class="links"><a href="" class="nav">Log Out</a></td>
+		<td width="129" nowrap class="links"><a href="../logout.cfm" class="nav">Log Out</a></td>
 		<td width="100%" class="links">&nbsp;</td>
   </tr> 
 </table>

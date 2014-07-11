@@ -1,10 +1,8 @@
 <cfcomponent>
 
-	<cffunction name="checkLogin" access="public" returntype="boolean">
+	<cffunction name="checkLogin" access="public" >
 		<cfargument name="Email" type="string" required="yes">
 		<cfargument name="AdminPassword" type="string" required="yes">
-		
-		<cfset isLoggedIn="false">
 		
 		<cfquery name="qCheckLogin" datasource="#Application.dsn#" result="resultInfo">
 		SELECT Email, AdminPassword
@@ -14,14 +12,16 @@
 		</cfquery>
 		
 		<cfif resultInfo.recordCount>
-			<cfset isLoggedIn="true" />
+			<cfset Session.isLoggedIn="true">
 		</cfif>
 
-		<cfreturn isLoggedIn>
+		
 	</cffunction>
 
 	<cffunction name="logOut" access="public">
-		
+
+		<cfset structClear(Session)>
+
 	</cffunction>	
 		
 </cfcomponent>

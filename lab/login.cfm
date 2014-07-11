@@ -1,5 +1,14 @@
 <cfif isDefined("Form.logIn")>
 	<cfset message="">
+	<cfinvoke component="walkThrough.lab.cfc.login" method="checklogin" >
+		<cfinvokeargument name="Email" value="#Form.Email#" />
+		<cfinvokeargument name="AdminPassword" value="#Form.AdminPassword#" />
+	</cfinvoke>
+	<cfif isDefined("Session.isLoggedIn")>
+		<cflocation url="http://localhost:80/walkThrough/lab/home/index.cfm">
+	<cfelse>
+		<cfset message=message="Invalid login: please try again.">
+	</cfif>
 	
 </cfif>
 
