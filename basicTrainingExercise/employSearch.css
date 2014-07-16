@@ -1,7 +1,7 @@
 
 body{
 	font-family: Arial;
-	font-size: 
+	font-size: 0.8em; 
 }
 th{
 	vertical-align: center;
@@ -32,7 +32,7 @@ fieldset{
 legend{
 	font-weight:bold;
 }
-input, select{
+select{
 	font: 1em Arial;
 }
 .textAlighRight{
