@@ -15,7 +15,7 @@
 	WHERE employee.departmentId = department.departmentId
 	<cfif structKeyExists(form, "search")>
 		<cfif form.employeeName NEQ "">
-			AND (firstname+surname LIKE  <cfqueryparam cfsqltype="cf_sql_varchar" value="%#form.employeeName#%">)
+			AND (firstname+ ' ' +surname LIKE  <cfqueryparam cfsqltype="cf_sql_varchar" value="%#form.employeeName#%">)
 		</cfif>
 		<cfif form.department NEQ "All">
 			AND department.departmentId = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.department#">
