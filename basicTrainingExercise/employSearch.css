@@ -32,7 +32,7 @@ fieldset{
 legend{
 	font-weight:bold;
 }
-select{
+input, select{
 	font: 1em Arial;
 }
 .textAlighRight{
@@ -43,6 +43,3 @@ select{
 	margin-right: 10px;
 }
 
-#employeeName{
-	font : 1em Arial;
-}
