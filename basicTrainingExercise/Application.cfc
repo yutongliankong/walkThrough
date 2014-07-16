@@ -1,5 +1,5 @@
 <cfcomponent>
-	<cfset this.name="basicTrainingddss">
+	<cfset this.name="basicTraining">
 	<cffunction name="onApplicationStart" returntype="boolean">
 		<cfset application.employeeName="">
 		<cfset application.departmentName="All">

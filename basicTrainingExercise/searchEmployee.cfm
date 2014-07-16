@@ -9,12 +9,13 @@
 	WHERE employee.departmentId = department.departmentId
 	<cfif isDefined("Form.search")>
 		<cfif Form.employeeName NEQ "">
-			AND firstName LIKE '%#Form.employeeName#%'
+			AND (firstname+surname LIKE  <cfqueryparam cfsqltype="cf_sql_varchar" value="%#Form.employeeName#%">)
 		</cfif>
 		<cfif Form.department NEQ "All">
-			AND department.departmentId = #Form.department#
+			AND department.departmentId = <cfqueryparam cfsqltype="cf_sql_integer" value="#Form.department#">
 		</cfif>
 	</cfif>
+
 </cfquery>
 
 	
@@ -35,15 +36,16 @@
 
 	<form name="searchEmpolyeeForm" action="searchEmployee.cfm" method="post">
 		<h1>FInd a Gruden Employee</h1>
+
  		<fieldset>
 	    	<legend>Search Form</legend>
 	   		<label for="employeeName" class="marginRule">Employee Name:</label>
-	   		<cfoutput><input class="marginRule" style="ime-mode:disabled" type="text" name="employeeName" id="employeeName" value="#application.employeeName#" /></cfoutput>
+	   		<cfoutput><input class="marginRule" style="ime-mode:disabled" type="text" name="employeeName" id="employeeName" <cfif isDefined("Form.search")>value="#application.employeeName#"</cfif> /></cfoutput>
 	   		<label for="department" class="marginRule">Department:</label>
 	   		<select  class="marginRule" name="department" id="department">
-	   			<cfoutput><option value="All" <cfif  application.departmentName EQ "All" AND isDefined("Form.search")>selected</cfif>>All</option></cfoutput>
+	   			<cfoutput><option value="All" <cfif  (application.departmentName EQ "All") AND isDefined("Form.search")>selected</cfif>>All</option></cfoutput>
 	   			<cfoutput query="qDepartment">
-					<option value="#qDepartment.departmentId#" <cfif  application.departmentName EQ qDepartment.departmentId AND isDefined("Form.search")>selected</cfif>>#qDepartment.departmentName#</option>
+					<option value="#qDepartment.departmentId#" <cfif  (application.departmentName EQ qDepartment.departmentId) AND isDefined("Form.search")>selected</cfif>>#qDepartment.departmentName#</option>
 				</cfoutput>
 				
 	   		</select>
@@ -73,15 +75,7 @@
  			<cfelse>
  				<h2>No results found.</h2>
 			</cfif>
- 			
- 			
- 		
  		</cfif>
-
-
-
 	</form>
-
-
 </body>
 </html>
