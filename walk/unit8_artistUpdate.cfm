@@ -39,7 +39,7 @@ Last Name:
 		LastName='#Form.LastName#'
 	WHERE ArtistID = #Form.ArtistID#
 	</cfquery>
-	<cflocation url="unit8_artistList2.cfm">
+	<cflocation url="unit8_artistList2.cfm" addtoken="no">
 </cfif>
 
 </body>

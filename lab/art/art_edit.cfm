@@ -11,7 +11,7 @@ This page is a generic form for updating a row in the ART table. You will prefil
 ---------------------------------------------------------------------//--->
 
 <cfif  NOT isDefined("URL.artID")>
-	<cflocation url="art_list.cfm">
+	<cflocation url="art_list.cfm" addtoken="no">
 </cfif>
 
 <cfquery name="qArt" datasource="#Application.dsn#">
@@ -95,7 +95,7 @@ ORDER BY ArtType
 			IsSold = #Form.ISSOLD#
 		WHERE ArtID = #Form.ArtID#
 	</cfquery>
-	<cflocation url="art_list.cfm">
+	<cflocation url="art_list.cfm" addtoken="no">
 </cfif>
 
 <!---include the footer --->

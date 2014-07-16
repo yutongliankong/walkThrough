@@ -80,7 +80,7 @@ ORDER BY ArtTYpe
         INSERT INTO Art (ArtistID, ArtName, ArtType_ID, Description, Price, Largeimage, IsSold)
         VALUES (#Form.ArtistID#, '#Form.ArtName#', #Form.ArtType_ID#, '#Form.Description#', '#Form.Price#', '#Form.Largeimage#', #Form.IsSold#)
     </cfquery>
-    <cflocation url="art_list.cfm">
+    <cflocation url="art_list.cfm" addtoken="no">
 </cfif>
 
 <!---include the footer --->

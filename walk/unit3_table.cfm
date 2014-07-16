@@ -13,7 +13,7 @@ FROM Artists
 <body>
 
 <h2>Artists</h2>
-<table border-"1">
+<table border="1">
 	<tr>
 		<th>First Name</th>
 		<th>Last Name</th>

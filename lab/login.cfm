@@ -5,7 +5,7 @@
 		<cfinvokeargument name="AdminPassword" value="#Form.AdminPassword#" />
 	</cfinvoke>
 	<cfif isDefined("Session.isLoggedIn")>
-		<cflocation url="http://localhost:80/walkThrough/lab/home/index.cfm">
+		<cflocation url="http://localhost:80/walkThrough/lab/home/index.cfm" addtoken="no">
 	<cfelse>
 		<cfset message=message="Invalid login: please try again.">
 	</cfif>

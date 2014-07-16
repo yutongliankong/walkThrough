@@ -1,6 +1,9 @@
-<cfparam name="From.employeeName" default="" />
-<cfparam name="From.department" default="All" />
+<cfif isDefined("Form.search")>
+	<cfset application.employeeName = #Form.employeeName#>
+	<cfset application.departmentName = #Form.department#>
+</cfif>
 <cfquery name="qEmployee" datasource="employee" result="employeeResult">
+	
 	SELECT firstName, surname, phoneExtension, departmentName
 	FROM employee, department
 	WHERE employee.departmentId = department.departmentId
@@ -14,6 +17,7 @@
 	</cfif>
 </cfquery>
 
+	
 <cfquery name="qDepartment" datasource="employee" result="departmentResult">
 	SELECT departmentId, departmentName
 	FROM department
@@ -29,46 +33,54 @@
 
 <body>
 
-	<cfform name="searchEmpolyeeForm" preservedata="yes">
+	<form name="searchEmpolyeeForm" action="searchEmployee.cfm" method="post">
 		<h1>FInd a Gruden Employee</h1>
  		<fieldset>
 	    	<legend>Search Form</legend>
 	   		<label for="employeeName" class="marginRule">Employee Name:</label>
-	   		<input class="marginRule" style="ime-mode:disabled" type="text" name="employeeName" id="employeeName" />
+	   		<cfoutput><input class="marginRule" style="ime-mode:disabled" type="text" name="employeeName" id="employeeName" value="#application.employeeName#" /></cfoutput>
 	   		<label for="department" class="marginRule">Department:</label>
-	   		<cfselect  class="marginRule" name="department" id="department" query="qDepartment" 
-	   			display="departmentName" value="departmentId" queryposition="below" style="font: 1em Arial">
-	   			<option value="All">All</option>
-	   		</cfselect>
+	   		<select  class="marginRule" name="department" id="department">
+	   			<cfoutput><option value="All" <cfif  application.departmentName EQ "All" AND isDefined("Form.search")>selected</cfif>>All</option></cfoutput>
+	   			<cfoutput query="qDepartment">
+					<option value="#qDepartment.departmentId#" <cfif  application.departmentName EQ qDepartment.departmentId AND isDefined("Form.search")>selected</cfif>>#qDepartment.departmentName#</option>
+				</cfoutput>
+				
+	   		</select>
 	   		<input type="submit" name="search" value="Search">
  		</fieldset>
  		
- 		<cfif employeeResult.RecordCount GT 0>
+ 		<cfif  isDefined("Form.search")>
  			<h2>Search Results</h2>
- 			<cfoutput><h2>Found #employeeResult.RecordCount# result(s).</h2></cfoutput>
- 		<table cellSpacing="0" cellpadding="0">
- 			<tr>
-				<th>Name</th>
-				<th>Email</th>
-				<th>Phone Extension</th>
-				<th>Department</th>
- 			</tr>
- 			<cfoutput query="qEmployee">
-			<tr>
-				<td>#qEmployee.firstName# #qEmployee.surname#</td>
-				<td><a href="mailto:#qEmployee.firstName#@gruden.com">#lcase(qEmployee.firstName)#@gruden.com</a></td>
-				<td style="text-align:right;">#qEmployee.phoneExtension#</td>
-				<td>#qEmployee.DepartmentName#</td>
-			</tr>
- 			</cfoutput>
- 		</table>
- 		<cfelse>
- 			<h2>No results found.</h2>
+ 			<cfif employeeResult.RecordCount GT 0>
+				<table cellSpacing="0" cellpadding="0">
+ 					<tr>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Phone Extension</th>
+						<th>Department</th>
+ 					</tr>
+		 			<cfoutput query="qEmployee">
+					<tr>
+						<td>#qEmployee.firstName# #qEmployee.surname#</td>
+						<td><a href="mailto:#qEmployee.firstName#@gruden.com">#lcase(qEmployee.firstName)#@gruden.com</a></td>
+						<td class="textAlighRight">#qEmployee.phoneExtension#</td>
+						<td>#qEmployee.DepartmentName#</td>
+					</tr>
+		 			</cfoutput>
+ 				</table>
+ 				<cfoutput><h2>Found #employeeResult.RecordCount# result(s).</h2></cfoutput>
+ 			<cfelse>
+ 				<h2>No results found.</h2>
+			</cfif>
+ 			
+ 			
+ 		
  		</cfif>
 
 
 
-	</cfform>
+	</form>
 
 
 </body>

@@ -32,6 +32,12 @@ fieldset{
 legend{
 	font-weight:bold;
 }
+input, select{
+	font: 1em Arial;
+}
+.textAlighRight{
+	text-align:right;
+}
 
 .marginRule{
 	margin-right: 10px;

@@ -38,7 +38,7 @@ ORDER BY LastName
 		WHERE ArtistID = 
 		<cfqueryparam value="#URL.ArtistID#" cfsqltype="cf_sql_integer"> 
 	</cfquery>
-	<cflocation url="unit8_cfqueryparam.cfm">
+	<cflocation url="unit8_cfqueryparam.cfm" addtoken="no">
 </cfif>
 
 </body>

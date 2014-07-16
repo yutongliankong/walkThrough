@@ -36,7 +36,7 @@ ORDER BY LastName
 		DELETE FROM Artists
 		WHERE Artists.ArtistID = #URL.ArtistID#
 	</cfquery>
-	<cflocation url="unit8_artistDelete.cfm">
+	<cflocation url="unit8_artistDelete.cfm" addtoken="no">
 </cfif>
 
 </body>
